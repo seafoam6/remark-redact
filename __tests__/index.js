@@ -21,22 +21,24 @@ test('comments', () => {
   const render = text =>
     unified()
       .use(reParse)
-      .use(com)
+      // .use(com)
+      .use(plugin)
       .use(remark2rehype)
       .use(rehypeStringify)
       .processSync(text)
 
   const {contents} = render(dedent`
-    Foo<--COMMENTS I will be gone ABC COMMENTS-->bar
+    Foo/~ COMMENTS I will be gone ABC COMMENTS ~/bar
     \`\`\`
     Foo<--COMMENTS I will not get removed because I am in a code block DEF COMMENTS-->bar
     \`\`\`
     <--COMMENTS Unfinished block won't get parsed either GHI
   `)
-  //expect(contents).toMatchSnapshot()
-  expect(contents).not.toContain('ABC')
-  expect(contents).toContain('DEF')
-  expect(contents).toContain('GHI')
+  // expect.skip(contents).toMatchSnapshot()
+  // expect.skip(contents).not.toContain('ABC')
+  // expect.skip(contents).toContain('DEF')
+  // expect.skip(contents).toContain('GHI')
+  expect(contents).toEqual(0)
 })
 
 // test('compiles to markdown', () => {

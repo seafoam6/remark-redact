@@ -1,40 +1,48 @@
-module.exports = redact
+// █
 
-//█
+function plugin () {
+  const beginMarker = '/~';
+  const endMarker = '~/';
 
-function redact() {
-  return transformer
+  function locator (value, fromIndex) {
+    return value.indexOf(beginMarker, fromIndex)
+  }
 
-  function transformer(tree, file) {
-    // console.log(tree);
+  function inlineTokenizer (eat, value, silent) {
+    const keepBegin = value.indexOf(beginMarker)
+    const keepEnd = value.indexOf(endMarker)
+    if (keepBegin !== 0 || keepEnd === -1) return
 
-    const children = tree.children
-    //console.log(children.length);
-    const newKids = children.map((v, i, a) => {
-      if (v.type === 'paragraph') {
-        const p = v.children[0].value
+    /* istanbul ignore if - never used (yet) */
+    if (silent) return true
 
-        // check for /~
-        const start = p.indexOf('/~')
+    const toBlackout = value.substring(beginMarker.length, keepEnd)
+    const blackedOut = toBlackout.replace(/[0-9a-zA-Z]/g, '█')
 
-        // check for ~/
-        const end = p.indexOf('~/')
-
-        // check for correct order
-        if (start > 0 && end > 0 && start < end) {
-          const split = p.split('/~')
-          const split2 = split[1].split('~/')
-          const toTransform = split2[0]
-          const transformed = toTransform.replace(/[0-9a-z]/g, '█')
-
-          v.children[0].value = split[0] + transformed + split2[1]
-        }
-        return v
-      }
+    return eat(beginMarker + toBlackout + endMarker)({
+      type: 'redacted',
+      value: JSON.stringify(blackedOut),
+      data: {blackedOut},
     })
+  }
+  inlineTokenizer.locator = locator
 
-    tree.children = newKids
+  const Parser = this.Parser
 
-    return tree
+  // Inject inlineTokenizer
+  const inlineTokenizers = Parser.prototype.inlineTokenizers
+  const inlineMethods = Parser.prototype.inlineMethods
+  inlineTokenizers.redacted = inlineTokenizer
+  inlineMethods.splice(inlineMethods.indexOf('text'), 0, 'redacted')
+
+  const Compiler = this.Compiler
+  if (Compiler) {
+    const visitors = Compiler.prototype.visitors
+    if (!visitors) return
+    visitors.redacted = node => {
+      return node.data.blackedOut
+    };
   }
 }
+
+module.exports = plugin
