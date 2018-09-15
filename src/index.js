@@ -1,9 +1,4 @@
-// █
-
-function plugin () {
-  const beginMarker = '/~';
-  const endMarker = '~/';
-
+function plugin ({beginMarker = '/~', endMarker = '~/', replacer = '█'} = {}) {
   function locator (value, fromIndex) {
     return value.indexOf(beginMarker, fromIndex)
   }
@@ -17,7 +12,7 @@ function plugin () {
     if (silent) return true
 
     const toBlackout = value.substring(beginMarker.length, keepEnd)
-    const blackedOut = toBlackout.replace(/[0-9a-zA-Z]/g, '█')
+    const blackedOut = toBlackout.replace(/[0-9a-zA-Z]/g, replacer)
 
     return eat(beginMarker + toBlackout + endMarker)({
       type: 'redacted',

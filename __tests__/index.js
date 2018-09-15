@@ -22,13 +22,17 @@ test('comments', () => {
     unified()
       .use(reParse)
       // .use(com)
-      .use(plugin)
+      .use(plugin, {
+        beginMarker: 'foo',
+        endMarker: 'bar',
+        replacer: 'x',
+      })
       .use(remark2rehype)
       .use(rehypeStringify)
       .processSync(text)
 
   const {contents} = render(dedent`
-    Foo/~ COMMENTS I will be gone ABC COMMENTS ~/bar
+    foo /~ ~ !! COMMENTS I will be gone ABC COMMENTS ~/ bar
     \`\`\`
     Foo<--COMMENTS I will not get removed because I am in a code block DEF COMMENTS-->bar
     \`\`\`
