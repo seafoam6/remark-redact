@@ -21,7 +21,7 @@ function plugin () {
 
     return eat(beginMarker + toBlackout + endMarker)({
       type: 'redacted',
-      value: JSON.stringify(blackedOut),
+      value: blackedOut,
       data: {blackedOut},
     })
   }
