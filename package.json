@@ -2,11 +2,15 @@
   "name": "remark-redact",
   "version": "1.0.0",
   "description": "redact passages in markdown files",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
     "go": "node run-through.js < example.md"
+  },
+  "repository": {
+    "url": "https://github.com/seafoam6/remark-redact",
+    "type": "git"
   },
   "author": "Steve Barman",
   "license": "ISC",
@@ -16,6 +20,7 @@
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.2.0",
     "dedent": "^0.7.0",
+    "del-cli": "^1.1.0",
     "jest": "^23.6.0",
     "rehype-stringify": "^4.0.0",
     "remark-comments": "^1.2.2",
