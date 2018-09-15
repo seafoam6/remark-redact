@@ -4,7 +4,10 @@
   "description": "redact passages in markdown files",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js",
+    "pretest": "eslint .",
+    "prepare": "del-cli dist && cross-env BABEL_ENV=production babel src --out-dir dist",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "go": "node run-through.js < example.md"
   },
   "author": "Steve Barman",

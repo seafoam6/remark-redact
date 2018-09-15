@@ -20,8 +20,6 @@ function redact() {
         // check for ~/
         const end = p.indexOf("~/");
 
-        const regex = /^[a-z0-9]+$/i;
-
         // check for correct order
         if (start > 0 && end > 0 && start < end) {
           const split = p.split("/~");
