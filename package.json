@@ -4,8 +4,6 @@
   "description": "redact passages in markdown files",
   "main": "index.js",
   "scripts": {
-    "pretest": "eslint .",
-    "prepare": "del-cli dist && cross-env BABEL_ENV=production babel src --out-dir dist",
     "test": "jest",
     "coverage": "jest --coverage",
     "go": "node run-through.js < example.md"
@@ -13,9 +11,17 @@
   "author": "Steve Barman",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.4.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.2.0",
+    "dedent": "^0.7.0",
+    "jest": "^23.6.0",
     "rehype-stringify": "^4.0.0",
+    "remark-comments": "^1.2.2",
     "remark-parse": "^5.0.0",
     "remark-rehype": "^3.0.1",
+    "remark-stringify": "^5.0.0",
     "unified": "^7.0.0",
     "unified-stream": "^1.0.2"
   }
