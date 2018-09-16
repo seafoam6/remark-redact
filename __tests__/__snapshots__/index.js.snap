@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Remark Redact w/o settings multiple It should match snapshot 1`] = `
+"<p>The \\"Fighting Téméraire\\" was a line-of-battle ship of ninety-eight
+guns which ████ ██████ captured from the French at the battle of the
+Nile, August 1, 1798. In the battle of Trafalgar, October 21, 1805,
+she fought next to the \\"Victory\\"--the ship from which Nelson commanded
+the battle, and aboard which, in the course of it, he was killed. She
+was sold out of the service in 1838, and towed to Rotherhithe to be
+broken up. Turner's painting was exhibited at the Royal Academy
+of 1839. His picture touched the ███████ █████, ███ ██████ ██
+████████████ ██ █████ ███ █████ ███ ████████ ███ ████████ ██ █████ ██
+███ ████████, ███ █████████ ███████ ██████████ ███ sentiment of the
+picture.</p>"
+`;
