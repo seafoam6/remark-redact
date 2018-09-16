@@ -2,7 +2,7 @@
   "name": "remark-redact",
   "version": "1.0.0",
   "description": "redact passages in markdown files",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
