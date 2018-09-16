@@ -10,7 +10,11 @@ You can redact passages of your text like this:
   Please don't show my /~ Secret Stuff ~/
 ```
 
-Any alphanumeric characters between the `/~` and `~/` will will be replaced with a `█`.
+Any alphanumeric characters between the `/~` and `~/` will will be replaced with a `█`. Like so:
+
+```
+  Please don't show my  ██████ █████
+```
 
 ## WARNING
 
