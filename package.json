@@ -1,6 +1,6 @@
 {
   "name": "remark-redact",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "redact passages of text in markdown files",
   "main": "lib/index.js",
   "keywords": [
@@ -19,7 +19,7 @@
     "type": "git"
   },
   "author": "Steve Barman",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
