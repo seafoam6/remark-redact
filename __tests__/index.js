@@ -1,11 +1,9 @@
 import dedent from 'dedent';
 import unified from 'unified';
-import stream from 'unified-stream';
 import reParse from 'remark-parse';
 import remark2rehype from 'remark-rehype';
-import com from 'remark-comments';
 
-import plugin from '../src';
+import plugin from '../lib';
 
 import remarkStringify from 'remark-stringify';
 import rehypeStringify from 'rehype-stringify';
