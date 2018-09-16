@@ -1,8 +1,14 @@
 {
   "name": "remark-redact",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "redact passages of text in markdown files",
   "main": "lib/index.js",
+  "keywords": [
+    "remark",
+    "redact",
+    "hide",
+    "markdown"
+  ],
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
