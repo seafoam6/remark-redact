@@ -62,3 +62,8 @@ unified()
 [MIT][license] © [Steve Barman][seafoam6]
 
 Redact is very very heavily indebted to [remark-comments](https://github.com/zestedesavoir/zmarkdown/tree/master/packages/remark-comments)
+
+<!-- Definitions -->
+
+[seafoam6]: https://stevebarman.com
+[license]: https://github.com/seafoam6/remark-redact/blob/master/LICENSE
