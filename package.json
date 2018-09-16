@@ -1,7 +1,7 @@
 {
   "name": "remark-redact",
   "version": "1.0.0",
-  "description": "redact passages in markdown files",
+  "description": "redact passages of text in markdown files",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
